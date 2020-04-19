@@ -1,9 +1,9 @@
-pronouns = ['je ' , 'tu ' , 'il/elle ' , 'nous ' , 'vous ' , 'ils/ells ']
-pronounsx = ['j’' , 'tu ' , 'il/elle ' , 'nous ' , 'vous ' , 'ils,ells ']
+pronouns = ['je ' , 'tu ' , 'il/elle ' , 'nous ' , 'vous ' , 'ils/elles ']
+pronounsx = ['j’' , 'tu ' , 'il/elle ' , 'nous ' , 'vous ' , 'ils/elles ']
 que_pronouns  = ['que je ' , 'que tu ' , 'qu’il / qu’elle ' , 'que nous ' , 'que vous ' , 'qu’ils / qu’elles ']
 que_pronounsX = ['que j’' , 'que tu ' , 'qu’il / qu’elle ' , 'que nous ' , 'que vous ' , 'qu’ils / qu’elles ']
 
-avoir_pres = ['ai' , 'as' , 'a' , 'avons' , 'aves' , 'ont']
+avoir_pres = ['ai' , 'as' , 'a' , 'avons' , 'avez' , 'ont']
 avoir_impf = ['avais' , 'avais' , 'avait' , 'avions' , 'aviez' , 'avaient']
 avoir_phis = ['eus' , 'eus' , 'eut' , 'eûmes' , 'eûtes' , 'eurent' ]
 avoir_futr = ['aurai' , 'auras' , 'aura' , 'aurons' , 'aurez' , 'auront']
