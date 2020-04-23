@@ -1,12 +1,8 @@
 from .auto_fields import *
 from aqt import mw
 from aqt.qt import *
-from aqt.utils import showInfo
-from bs4 import BeautifulSoup
-from PyQt5.QtCore import QCoreApplication
 from PyQt5 import QtWidgets , QtGui
-from PyQt5.QtWidgets import QAction, QProgressDialog, QWidget, QPushButton, QVBoxLayout
-from aqt import mw
+from PyQt5.QtWidgets import QAction,  QVBoxLayout
 from anki.hooks import addHook
 
 ADDON = os.path.dirname(os.path.abspath(__file__))

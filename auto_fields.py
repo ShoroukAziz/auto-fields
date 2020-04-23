@@ -1,18 +1,12 @@
 from bs4 import BeautifulSoup
-from .anki_wiki_parser import *
-from .wiki_french_verb_parser import *
 from aqt import mw
 from aqt.qt import *
-from aqt.utils import showInfo
-from bs4 import BeautifulSoup
+from aqt.utils import showInfo , tooltip
 from PyQt5.QtCore import QCoreApplication
-from PyQt5 import QtWidgets , QtGui
+from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QAction, QProgressDialog, QWidget, QPushButton, QVBoxLayout
-from aqt import mw
-from anki.hooks import addHook
 from .anki_wiki_parser import *
 from .wiki_french_verb_parser import *
-
 
 def progress(data, *args):
     """
@@ -57,6 +51,8 @@ def populateEtymologyForOneNote(note):
     p =WikitionaryFrenchParser(word)
     etymology =  p.getEtymology()
     note.flush()
+
+
 def populateIPAForOneNote(note):
 
     word = BeautifulSoup(note['word'].lower(),'html.parser').get_text()
@@ -65,6 +61,8 @@ def populateIPAForOneNote(note):
     if IPA is not None:
         note['IPA'] = IPA
         note.flush()
+
+
 def populateAudioForOneNote(note):
 
     word = BeautifulSoup(note['word'].lower(),'html.parser').get_text()
@@ -73,6 +71,8 @@ def populateAudioForOneNote(note):
     if audio is not None:
         note['sound'] = audio
         note.flush()
+
+
 def populatePosForOneNote(note):
 
     word = BeautifulSoup(note['word'].lower(),'html.parser').get_text()
@@ -81,6 +81,8 @@ def populatePosForOneNote(note):
     if pos is not None:
         note['type'] = pos
         note.flush()
+
+
 def populatePluralForOneNote(note):
 
     word = BeautifulSoup(note['word'].lower(),'html.parser').get_text()
@@ -89,6 +91,8 @@ def populatePluralForOneNote(note):
     if plural is not None:
         note['plural'] = plural
         note.flush()
+
+
 def populateFeminineForOneNote(note):
 
     word = BeautifulSoup(note['word'].lower(),'html.parser').get_text()
@@ -97,6 +101,8 @@ def populateFeminineForOneNote(note):
     if feminine is not None:
         note['feminin version'] = feminine
         note.flush()
+
+
 def populateExtraFieldsForOneNote(note):
 
     word = BeautifulSoup(note['word'].lower(),'html.parser').get_text()
@@ -137,6 +143,8 @@ def setVerbConjugationsForOneNoteFromBrowser(self):
         setVerbConjugationsForOneNote(frenchNote)
     mw.col.reset()
     mw.reset()
+
+
 def populateExtraFields(self):
     mw = self.mw
     cids = self.selectedCards()
@@ -150,6 +158,8 @@ def populateExtraFields(self):
     mw.col.reset()
     mw.reset()
     showInfo('done')
+
+
 def populateEtymology(self):
     mw = self.mw
     cids = self.selectedCards()
@@ -163,6 +173,8 @@ def populateEtymology(self):
     mw.col.reset()
     mw.reset()
     showInfo('done')
+
+
 def populateIPA(self):
     mw = self.mw
     cids = self.selectedCards()
@@ -176,6 +188,8 @@ def populateIPA(self):
     mw.col.reset()
     mw.reset()
     showInfo('done')
+
+
 def populateAudio(self):
     mw = self.mw
     cids = self.selectedCards()
@@ -189,6 +203,8 @@ def populateAudio(self):
     mw.col.reset()
     mw.reset()
     showInfo('done')
+
+
 def populatePos(self):
     mw = self.mw
     cids = self.selectedCards()
@@ -202,6 +218,8 @@ def populatePos(self):
     mw.col.reset()
     mw.reset()
     showInfo('done')
+
+
 def populatePlural(self):
     mw = self.mw
     cids = self.selectedCards()
@@ -215,6 +233,8 @@ def populatePlural(self):
     mw.col.reset()
     mw.reset()
     showInfo('done')
+
+
 def populateFeminine(self):
     mw = self.mw
     cids = self.selectedCards()

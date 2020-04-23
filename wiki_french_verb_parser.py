@@ -1,12 +1,7 @@
-import re, requests
+# import pprint as pp
+import re, requests , json , os , sys , shutil
 from aqt import mw
 from bs4 import BeautifulSoup
-import json
-import time
-import pprint as pp
-import os
-import sys
-import shutil
 from .static_data import *    #from static_data import *
 CONFIG = mw.addonManager.getConfig(__name__)
 

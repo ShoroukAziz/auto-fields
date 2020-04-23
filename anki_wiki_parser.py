@@ -1,9 +1,7 @@
-import pprint
-import requests
-import os
-import shutil
+# import pprint
+import requests , os , shutil , sys
 from aqt import mw
-import sys
+
 # insert at 1, 0 is the script path (or '' in REPL)
 sys.path.insert(1, '/WiktionaryParser')
 from .WiktionaryParser.wiktionaryparser import WiktionaryParser
