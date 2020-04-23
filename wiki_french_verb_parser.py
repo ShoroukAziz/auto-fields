@@ -8,7 +8,6 @@ import os
 import sys
 import shutil
 from .static_data import *    #from static_data import *
-from .gTTS.gtts import gTTS
 CONFIG = mw.addonManager.getConfig(__name__)
 
 collection_media_path = CONFIG['collection_media_path']
@@ -116,12 +115,10 @@ class WikitionaryFrenchVerbParser(object):
             for i in range(5):
                 conjs[conjugations_names[i]]['conjs'] = [generateConjugation(True ,conjugatedVerb= element ,pronoun= p1 ,pronounx= p1x) for (element,p1,p1x) in zip(classes[i], pronouns, pronounsx) ]
                 conjs[conjugations_names[i]]['IPA'] = [getIPA(element) for element in classes[i]]
-                # conjs[conjugations_names[i]]['audio'] =[self.getAudio(element) for element in conjs[conjugations_names[i]]['conjs']]
         def getIndicativeCompoundTenses():
             for i , auxiliary_list ,auxiliary_list_IPA  in zip(range(5,10) , [pres,impf,phis,futr,cond] ,[pres_IPA,impf_IPA,phis_IPA,futr_IPA,cond_IPA] ):
                 conjs[conjugations_names[i]]['conjs']  = [generateConjugation(False,p1,p1x,auxilary=a ,pastParticiple=pp) for (p1,p1x,a) in zip(pronouns,pronounsx ,auxiliary_list)]
                 conjs[conjugations_names[i]]['IPA'] = [auxilary_ipa+" "+pp_IPA for auxilary_ipa in auxiliary_list_IPA]
-                # conjs[conjugations_names[i]]['audio'] =[self.getAudio(element) for element in conjs[conjugations_names[i]]['conjs']]
 
         def getSubjunctiveSimpleTenses():
             tenses = ['pres' , 'impf' ]
@@ -134,9 +131,6 @@ class WikitionaryFrenchVerbParser(object):
             conjs["subj_pres"]['IPA'] =  [getIPA(element) for element in classes[0]]
             conjs["subj_impf"]['IPA'] =  [getIPA(element) for element in classes[1]]
 
-            # conjs["subj_pres"]['audio'] =[self.getAudio(element) for element in conjs["subj_pres"]['conjs']]
-            # conjs["subj_impf"]['audio'] =[self.getAudio(element) for element in conjs["subj_impf"]['conjs']]
-
 
         def getSubjunctiveCompoundTenses():
             conjs["subj_p"]['conjs'] = [generateConjugation(False,p1,p1x,auxilary=a ,pastParticiple=pp) for (p1,p1x,a) in zip(que_pronouns,que_pronounsX , subj_p)]
@@ -145,26 +139,20 @@ class WikitionaryFrenchVerbParser(object):
             conjs["subj_p"]['IPA'] = [ipa +" "+pp_IPA for ipa in  subj_p_IPA  ]
             conjs["subj_pqf"]['IPA'] = [ipa +" "+pp_IPA for ipa in  subj_impf_IPA  ]
 
-            # conjs["subj_p"]['audio'] =[self.getAudio(element) for element in conjs["subj_p"]['conjs']]
-            # conjs["subj_pqf"]['audio'] =[self.getAudio(element) for element in conjs["subj_pqf"]['conjs']]
-
         def getImperativeSimple():
             classses = ['2|s|impr-form-of' , '1|p|impr-form-of' , '2|p|impr-form-of']
             try:
                 conjs["imperative_smpl"]['conjs'] = [inner_html(class_name) for class_name in classses]
                 conjs["imperative_smpl"]['IPA'] = [getIPA(element) for element in classses]
-                # conjs["imperative_smpl"]['audio'] =[self.getAudio(element) for element in conjs["imperative_smpl"]['conjs']]
 
             except :
                 conjs["imperative_smpl"]['conjs'] = []
                 conjs["imperative_smpl"]['IPA'] = []
-                # conjs["imperative_smpl"]['audio'] =[]
 
 
         def getImperativeCompound():
             conjs["imperative_comp"]['conjs'] = [p1+" "+pp for p1 in imperative]
             conjs["imperative_comp"]['IPA'] = [ipa +" "+pp_IPA for ipa in  imperative_IPA  ]
-            # conjs["imperative_comp"]['audio'] =[self.getAudio(element) for element in conjs["imperative_comp"]['conjs']]
 
 
 
